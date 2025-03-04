@@ -24,7 +24,6 @@ FILE_TYPE = {
     "Others": []  # Default category for unknown file types
 }
 
-# Function to organize files
 def file_organizer(directory):
     if not os.path.exists(directory):
         messagebox.showerror("Error", "Directory does not exist!")
@@ -50,12 +49,10 @@ def file_organizer(directory):
 
     messagebox.showinfo("Success", "Files organized successfully!")
 
-# Function to browse directory
 def browse_directory():
     folder_selected = filedialog.askdirectory()
     folder_path.set(folder_selected)
 
-# Function to start organizing files
 def start_organizing():
     directory = folder_path.get()
     if directory:
@@ -63,7 +60,6 @@ def start_organizing():
     else:
         messagebox.showerror("Error", "Please select a folder!")
 
-# Create GUI window
 root = tk.Tk()
 root.title("File Organizer")
 root.geometry("500x250")
@@ -71,11 +67,9 @@ root.resizable(False, False)
 
 folder_path = tk.StringVar()
 
-# GUI Layout
 tk.Label(root, text="Select Folder:", font=("Arial", 12)).pack(pady=10)
 tk.Entry(root, textvariable=folder_path, width=50).pack(pady=5)
 tk.Button(root, text="Browse", command=browse_directory, font=("Arial", 10)).pack(pady=5)
 tk.Button(root, text="Organize Files", command=start_organizing, font=("Arial", 12), bg="green", fg="white").pack(pady=20)
 
-# Run the GUI
 root.mainloop()
