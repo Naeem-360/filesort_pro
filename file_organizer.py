@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout, QHBoxLayout, QP
 from PyQt5.QtCore import Qt, QTimer, QPoint
 from PyQt5.QtGui import QFont, QColor, QPainter, QPen, QCursor
 
-# File types dictionary with expanded types for all categories
+# File types dictionary for various categories
 FILE_TYPE = { 
     "Images": [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".svg", ".webp", ".ico", ".heic", 
                ".raw", ".psd", ".jp2", ".jpe", ".jfif", ".exif", ".pnm", ".ppm", ".pgm"],
@@ -291,7 +291,7 @@ class FileOrganizerGUI(QWidget):
             QMessageBox.critical(self, "Error", "Directory does not exist!")
             return
 
-        # File organization logic
+        # File organization core logic
         file_list = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
         for file in file_list:
             file_path = os.path.join(directory, file)
